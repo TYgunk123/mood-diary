@@ -1,0 +1,24 @@
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from app.router import router
+
+app = FastAPI(
+    title="Mood Diary API",
+    description="輸入心情，回傳一句鼓勵的 FastAPI 專案",
+    version="1.0"
+)
+
+# ⭐ 允許前端連線（很重要）
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # 若你之後部署，可以換成你的 domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(router)
+
+@app.get("/")
+def home():
+    return {"message": "Mood Diary API is running!"}
