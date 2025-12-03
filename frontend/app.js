@@ -11,7 +11,7 @@ async function sendMood() {
 
     try {
         // 這裡用 localhost 測試，部署到 Zeabur 後改成你的 Zeabur URL
-        const apiUrl = "https://mood-diary.zeabur.app/mood";
+        const apiUrl = "https://mood-diary.zeabur.app/";
         // 部署到 Zeabur 例如：
         // const apiUrl = "https://你的專案名稱.zeabur.app/mood";
 
